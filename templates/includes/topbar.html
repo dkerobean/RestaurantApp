@@ -1,0 +1,35 @@
+<div class="sb-top-bar-frame">
+      <div class="sb-top-bar-bg"></div>
+      <div class="container">
+        <div class="sb-top-bar">
+          <a href="https://elanta.app/nazar/starbelly-demo/home-2.html" class="sb-logo-frame">
+            <!-- logo img -->
+            <img src="img/ui/logo.svg" alt="Starbelly">
+          </a>
+          <!-- menu -->
+          <div class="sb-right-side">
+            {% include './partials/nav.html' %}
+            <div class="sb-buttons-frame">
+              <!-- button -->
+              <div class="sb-btn sb-btn-2 sb-btn-gray sb-btn-icon sb-m-0 sb-btn-cart">
+                <span class="sb-icon">
+                  <img src="img/ui/icons/cart.svg" alt="icon">
+                </span>
+                <i class="sb-cart-number">5</i>
+              </div>
+              <!-- button end -->
+              <!-- menu btn -->
+              <div class="sb-menu-btn"><span></span></div>
+              <!-- info btn -->
+              <div class="sb-info-btn"><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- info bar -->
+        {% include 'partials/infobar.html' %}
+      <!-- info bar end -->
+      <!-- minicart -->
+        {% include 'partials/minicart.html' %}
+      <!-- minicart end -->
+    </div>

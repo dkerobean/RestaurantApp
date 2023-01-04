@@ -1,0 +1,67 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+  <!-- app wrapper -->
+  <div class="sb-app">
+    <!-- preloader -->
+    
+    <!-- preloader end -->
+    <!-- click effect -->
+    <div class="sb-click-effect"></div>
+    <!-- loader -->
+    <div class="sb-load"></div>
+    <!-- top bar -->
+    <div class="sb-top-bar-frame">
+      <div class="sb-top-bar-bg"></div>
+      <div class="container">
+        <div class="sb-top-bar">
+          <a href="/" class="sb-logo-frame">
+            <!-- logo img -->
+            <img src="img/ui/logo.svg" alt="Starbelly">
+          </a>
+          <!-- menu -->
+          <div class="sb-right-side">
+            {% include 'includes/nav.html' %}
+            <div class="sb-buttons-frame">
+              <!-- button -->
+              <div class="sb-btn sb-btn-2 sb-btn-gray sb-btn-icon sb-m-0 sb-btn-cart">
+                <span class="sb-icon">
+                  <img src="img/ui/icons/cart.svg" alt="icon">
+                </span>
+                <i class="sb-cart-number">5</i>
+              </div>
+              <!-- button end -->
+              <!-- menu btn -->
+              <div class="sb-menu-btn"><span></span></div>
+              <!-- info btn -->
+              <div class="sb-info-btn"><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- info bar -->
+        {% include 'includes/infobar.html' %}
+      <!-- info bar end -->
+      <!-- minicart -->
+        {% include 'includes/minicart.html' %}
+      <!-- minicart end -->
+    </div>
+    <!-- top bar end -->
+
+    <!-- dynamic content -->
+    
+    <!-- dynamic content end -->
+
+    <!-- discount popup -->
+    {% comment %} {% include 'includes/popup.html' %} {% endcomment %}
+    <!-- discount popup end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+ {% include 'includes/scripts.html'%}
+
+{% endblock %}
