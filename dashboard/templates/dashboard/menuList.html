@@ -1,0 +1,68 @@
+{% extends 'layouts/admin.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+ <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                            <p class="mb-0">Your business dashboard template</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Menu</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Menu List</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    
+                    
+                    
+                    
+                    {% for food in foods %}
+
+                        <div class="col-xl-3 col-lg-6 col-md-4 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="new-arrival-product">
+                                    <div class="new-arrivals-img-contnent">
+                                        <img class="img-fluid" src="{{food.image.url}}" alt="">
+                                    </div>
+                                    <div class="new-arrival-content text-center mt-3">
+                                        <h4>{{food.name}}</h4>
+                                        {% comment %} <ul class="star-rating">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-half-empty"></i></li>
+                                            <li><i class="fa fa-star-half-empty"></i></li>
+                                        </ul> {% endcomment %}
+                                        <div class="ml-auto">
+                                            <a href="{% url 'foodDetail' food.id %}" class="btn btn-success btn-xs sharp mr-1"><i class="fa fa-eye"></i></a>
+                                            <a href="{% url 'updateFood' food.id %}" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a href="{% url 'deleteFood' food.id %}" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                        <span class="price">${{food.price}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    {% endfor %}
+                        
+                    
+                </div>
+            </div>
+        </div>
+
+
+ {% endblock %}

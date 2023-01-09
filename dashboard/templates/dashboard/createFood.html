@@ -1,0 +1,66 @@
+{% extends 'layouts/admin.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                            <span>Element</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Menu</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Add To Menu</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+
+                    <div class="col-xl-8 col-lg-8 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Add To Menu</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="basic-form">
+                                    <form method="POST" action="" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            {% for field in form %}
+                                            <div class="form-group col-md-8">
+                                            <label>{{field.label}}</label>
+                                                {{field}}
+                                            </div>
+                                                
+                                                {% for error in field.errors %}
+                                                <p style="color:red;">{{error}}</p>
+                                                {% endfor %}  
+                                            {% endfor %} 
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                    	
+					
+                </div>	
+
+                    
+					
+                </div>
+            </div>
+        </div>
+
+
+ {% endblock %}
