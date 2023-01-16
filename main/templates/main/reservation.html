@@ -18,7 +18,7 @@
       <div class="sb-top-bar-bg"></div>
       <div class="container">
         <div class="sb-top-bar">
-          <a href="https://elanta.app/nazar/starbelly-demo/home-2.html" class="sb-logo-frame">
+          <a href="/" class="sb-logo-frame">
             <!-- logo img -->
             <img src="{% static 'img/ui/logo.svg' %}" alt="Starbelly">
           </a>
@@ -52,7 +52,8 @@
     <!-- top bar end -->
 
     <!-- dynamic content -->
-     <!-- dynamic content -->
+    
+    <!-- dynamic content -->
     <div id="sb-dynamic-content" class="sb-transition-fade">
 
       <!-- banner -->
@@ -63,8 +64,8 @@
               <!-- main title -->
               <div class="sb-main-title-frame">
                 <div class="sb-main-title">
-                  <span class="sb-suptitle sb-mb-30">Contact</span>
-                  <h1 class="sb-mb-30">Get in <span>Touch with Starbelly</span></h1>
+                  <span class="sb-suptitle sb-mb-30">Reservation</span>
+                  <h1 class="sb-mb-30">Mmm...! <br>Your evening <br>will be great!</h1>
                   <p class="sb-text sb-text-lg sb-mb-30">Consectetur numquam poro nemo veniam<br>eligendi rem adipisci quo modi.</p>
                   <ul class="sb-breadcrumbs">
                     <li><a href="https://elanta.app/nazar/starbelly-demo/home-1.html">Home</a></li>
@@ -77,39 +78,41 @@
             <div class="col-lg-5">
               <div class="sb-contact-form-frame">
                 <div class="sb-illustration-9">
-                  <img src="{% static 'img/illustrations/envelope-1.png' %}" alt="envelope" class="sb-envelope-1">
-                  <img src="{% static 'img/illustrations/envelope-2.png' %}" alt="envelope" class="sb-envelope-2">
+                  <img src="{% static 'img/illustrations/reservation.png' %}" alt="envelope" class="sb-envelope-1">
                   <div class="sb-cirkle-1"></div>
                   <div class="sb-cirkle-2"></div>
                   <div class="sb-cirkle-3"></div>
                 </div>
                 <div class="sb-form-content">
                   <div class="sb-main-content">
-                    <h3 class="sb-mb-30">Send Message</h3>
-                    <form  method="POST" action="">
-                      {% csrf_token %}
+                    <h3 class="sb-mb-30">Reservation details</h3>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                      <div class="row">
+                        <div class="col-lg-12">
+                        {% for field in form %}
 
-                      {% for field in form %}
-
-                      <div class="sb-group-input">
-                        {{field}}
-                        <span class="sb-bar"></span>
-                        <label>{{field.label}}</label>
-                        {% for error in field.errors %}
-                            <p style="color:red;">{{error}}</p>
-                        {% endfor %}
-                      </div>
-                      
-                      
+                            <div class="sb-group-input">
+                                {{field}}
+                                <span class="sb-bar"></span>
+                                <label>{{field.label}}</label>
+                                {% for error in field.errors %}
+                                    <p style="color:red;">{{error}}</p>
+                                {% endfor %}
+                            </div>
+                            
+                            
+                                               
                       {% endfor %}
-                      
-                      <p class="sb-text sb-text-xs sb-mb-30">*We promise not to disclose your <br>personal information to third parties.</p>
+                        </div>
+                        
+                      </div>
                       <!-- button -->
                       <button type="submit" class="sb-btn sb-cf-submit sb-show-success">
                         <span class="sb-icon">
                           <img src="{% static 'img/ui/icons/arrow.svg' %}" alt="icon">
                         </span>
-                        <span>Send</span>
+                        <span>Reserve</span>
                       </button>
                       <!-- button end -->
                     </form>
@@ -179,10 +182,27 @@
       <!-- map end -->
 
       <!-- footer -->
-      {% include 'includes/footer.html'%}
+      <footer>
+        <div class="container">
+          <div class="sb-footer-frame">
+            <a href="https://elanta.app/nazar/starbelly-demo/home-1.html" class="sb-logo-frame">
+              <!-- logo img -->
+              <img src="{% static 'img/ui/logo.svg' %}" alt="Starbelly">
+            </a>
+            <ul class="sb-social">
+              <li><a href="reservation.html#."><i class="fab fa-twitter"></i></a></li>
+              <li><a href="reservation.html#."><i class="fab fa-instagram"></i></a></li>
+              <li><a href="reservation.html#."><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="reservation.html#."><i class="fab fa-youtube"></i></a></li>
+            </ul>
+            <div class="sb-copy">&copy; late 2021 Starbelly. All Rights Reserved.</div>
+          </div>
+        </div>
+      </footer>
       <!-- footer end -->
 
     </div>
+
     <!-- dynamic content end -->
 
     <!-- discount popup -->

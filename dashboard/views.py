@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from .forms import FoodForm, FoodTypeForm, CategoryForm
-from .models import Food
+from .models import Food, Category, FoodType
+from main.models import Contact, Reservation
 
 
 def userLogin(request):
@@ -153,3 +154,137 @@ def foodDetail(request, pk):
     }
     
     return render(request, 'dashboard/foodDetail.html', context)
+
+
+@login_required(login_url="login")
+def contact(request):
+    
+    message = Contact.objects.all()
+    
+    context = {
+        'message':message
+    }
+    
+    return render(request, 'dashboard/contact.html',context)
+
+
+@login_required(login_url="login")
+def reservation(request):
+    
+    reservation = Reservation.objects.all()
+
+    context = {
+        'reservation':reservation
+    }
+
+    return render(request, 'dashboard/reservation.html', context)
+
+
+@login_required(login_url="login")
+def deleteContact(request, pk):
+
+    contact = Contact.objects.get(id=pk)
+
+    if request.method == 'POST':
+        contact.delete()
+        messages.success(request, 'Message Deleted Successfully')
+        return redirect('messages')
+
+    context = {
+        'object': contact
+    }
+
+    return render(request, 'dashboard/delete.html', context)
+
+
+@login_required(login_url="login")
+def deleteReservation(request, pk):
+
+    reservation = Reservation.objects.get(id=pk)
+
+    if request.method == 'POST':
+        reservation.delete()
+        messages.success(request, 'Message Deleted Successfully')
+        return redirect('reservations')
+
+    context = {
+        'object': reservation
+    }
+
+    return render(request, 'dashboard/delete.html', context)
+
+@login_required(login_url="login")
+def createCategory(request):
+    
+    form = CategoryForm()
+    categories = Category.objects.all()
+
+    if request.method == "POST":
+        form = CategoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Category Added!')
+            return redirect('categories')
+
+    context = {
+        'form': form,
+        'categories':categories
+    }
+
+    return render(request, 'dashboard/categories.html', context)
+
+
+@login_required(login_url="login")
+def deleteCategory(request, pk):
+    category = Category.objects.get(id=pk)
+
+    if request.method == 'POST':
+        category.delete()
+        messages.success(request, 'Message Deleted Successfully')
+        return redirect('categories')
+
+    context = {
+        'object': category
+    }
+
+    return render(request, 'dashboard/delete.html', context)
+
+
+@login_required(login_url="login")
+def createFoodtype(request):
+
+    form = FoodTypeForm()
+    foodtypes = FoodType.objects.all()
+
+    if request.method == "POST":
+        form = FoodTypeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'FoodType Added!')
+            return redirect('foodtype')
+
+    context = {
+        'form': form,
+        'foodtypes': foodtypes
+    }
+
+    return render(request, 'dashboard/foodtype.html', context)
+
+
+@login_required(login_url="login")
+def deleteFoodtype(request,pk):
+    foodtype = FoodType.objects.get(id=pk)
+
+    if request.method == 'POST':
+        foodtype.delete()
+        messages.success(request, 'FoodType Deleted Successfully')
+        return redirect('foodtype')
+
+    context = {
+        'object': foodtype
+    }
+
+    return render(request, 'dashboard/delete.html', context)
+
+
+    

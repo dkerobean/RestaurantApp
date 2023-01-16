@@ -12,6 +12,23 @@ urlpatterns = [
     path('update/<str:pk>/', views.updateFood, name="updateFood"),
     path('viewMenu/', views.viewMenu, name="viewMenu"),
     
+    path('messages/', views.contact, name="messages"),
+    path('message/delete/<str:pk>/', views.deleteContact, name="deleteMessage"),
+    path('reservations/', views.reservation, name="reservations"),
+    path('reservation/delete/<str:pk>/', views.deleteReservation, name="deleteReservation"),
+    path('category/create/', views.createCategory, name="categories"),
+    path('category/delete/<str:pk>/', views.deleteCategory, name="deleteCategory"),
+    path('foodtype/create/', views.createFoodtype, name="foodtype"),
+    path('foodtype/delete/<str:pk>/', views.deleteFoodtype, name="deleteFoodtype"),
+
+
+
+
+
+
+    
+    
+    
     
 ]
 

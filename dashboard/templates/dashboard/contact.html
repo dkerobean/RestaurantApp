@@ -1,0 +1,50 @@
+{% extends 'layouts/admin.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="content-body">
+            <div class="container-fluid">	
+
+                    <div class="col-xl-6 col-lg-12 ">
+                        <div class="card border-0 pb-0">
+                            <div class="card-header border-0 pb-0">
+                                <h4 class="card-title">Message({{message.count}})</h4>
+                            </div>
+                            <div class="card-body"> 
+                                <div id="DZ_W_Todo3" class="widget-media dz-scroll" style="height:370px;">
+                                    <ul class="timeline">
+                                    {% for message in message %}
+                                        
+                                        <li>
+                                            <div class="timeline-panel">
+												<div class="media mr-2">
+													<img alt="image" width="50" src="{% static '/admin/images/avatar/1.jpg' %}">
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-1">{{message.name}} <small class="text-muted">{{message.created_at|timesince}}</small></h5>
+                                                    <p class="mb-1">{{message.email}}</p>
+                                                    <hr>
+													<p class="mb-1">{{message.message}}</p><br>
+													<a href="{% url 'deleteMessage' message.id %}" class="btn btn-outline-danger btn-xxs">Delete</a>
+												</div>
+												
+											</div>
+                                        </li>
+                                        
+                                    {% endfor %}
+                                        </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					
+                </div>
+            </div>
+        
+
+
+ {% endblock %}

@@ -20,3 +20,16 @@
   <script src="{% static 'js/plugins/fancybox.min.js'%}"></script>
   <!-- starbelly js -->
   <script src="{% static 'js/main.js'%}"></script>
+
+  <!-- Toastr -->
+    <script src="{% static './admin/vendor/toastr/js/toastr.min.js'%}"></script>
+
+  {% if messages %}
+    {% for message in messages %} 
+	<script>
+		 toastr.{{ message.tags }}("{{ message }}");
+	</script>
+       
+    {% endfor %}
+
+    {% endif %}

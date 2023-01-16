@@ -1,0 +1,87 @@
+{% extends 'layouts/admin.html' %}
+
+{% load static %}
+
+    
+
+{% block content %}
+
+<div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                            <p class="mb-0">Your business dashboard template</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Bootstrap</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Reservation requests</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-responsive-md">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th><strong>NAME</strong></th>
+                                                <th><strong>PHONE</strong></th>
+                                                <th><strong>DATE</strong></th>
+                                                <th><strong>STATUS</strong></th>
+                                                <th><strong>NO. OF PEOPLE</strong></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            {% for reservation in reservation %}
+                                                <tr>
+                                                <td><strong>{{reservation.name}}</strong></td>
+                                                <td>{{reservation.phone}}</td>
+                                                <td>{{reservation.date_time}}</td>
+                                                <td><span class="badge light badge-warning">Pending</span></td>
+                                                <td>{{reservation.no_of_people}}</td>
+                                                
+                                                <td>
+													<div class="dropdown">
+														<button type="button" class="btn btn-warning light sharp" data-toggle="dropdown">
+															<svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="5" cy="12" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="19" cy="12" r="2"/></g></svg>
+														</button>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="#">Completed</a>
+															<a class="dropdown-item" href="{% url 'deleteReservation' reservation.id %}">Delete</a>
+														</div>
+													</div>
+												</td>
+                                            </tr>
+                                            {% endfor %}
+                                                
+											
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+           
