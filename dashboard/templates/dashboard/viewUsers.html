@@ -1,0 +1,78 @@
+{% extends 'layouts/admin.html' %}
+
+{% load static %}
+
+    
+
+{% block content %}
+
+<div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                            <p class="mb-0">Your business dashboard template</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Bootstrap</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">All Users</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-responsive-md">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th><strong>USERNAME</strong></th>
+                                                <th><strong>EMAIL</strong></th>
+                                                <th><strong>JOIN DATE</strong></th>
+                                                <th><strong>USER STATUS</strong></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            {% for user in users%}
+                                                <tr>
+                                                <td><strong>{{user.username}}</strong></td>
+                                                <td>{{user.email}}</td>
+                                                <td>{{user.date_joined}}</td>
+                                                <td><span class="badge light badge-success">Active</span></td>
+                                                <td>{{user.group}}</td>
+                                                
+                                                <td>
+													<a href="{% url 'deleteUser' user.id %}" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+												</td>
+                                            </tr>
+                                            {% endfor %}
+                                                
+											
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+           

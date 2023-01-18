@@ -21,6 +21,13 @@ urlpatterns = [
     path('foodtype/create/', views.createFoodtype, name="foodtype"),
     path('foodtype/delete/<str:pk>/', views.deleteFoodtype, name="deleteFoodtype"),
     path('profile/<str:pk>/', views.viewProfile, name="profile"),
+    path('create/user/', views.createUser, name="createUser"),
+    path('users/', views.viewUsers, name="viewUsers"),
+    path('users/delete/<str:pk>/', views.deleteUsers, name="deleteUser"),
+
+    
+    path('permission-error/', views.permissionEror, name="permission"),
+
 
 
 
