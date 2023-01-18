@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from .forms import FoodForm, FoodTypeForm, CategoryForm
+from .forms import FoodForm, FoodTypeForm, CategoryForm, ProfileForm
 from .models import Food, Category, FoodType
 from main.models import Contact, Reservation
+from user.models import Profile
 
 
 def userLogin(request):
@@ -83,7 +84,7 @@ def createFood(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Food Added!')
-            return redirect('dashboard')
+            return redirect('addMenu')
             
     
     context = {
@@ -285,6 +286,34 @@ def deleteFoodtype(request,pk):
     }
 
     return render(request, 'dashboard/delete.html', context)
+
+
+@login_required(login_url="login")
+def viewProfile(request, pk):
+    
+    user = User.objects.get(id=pk)
+    profile = Profile.objects.get(user = user)
+    
+    form = ProfileForm(instance=profile)
+    
+    if request.method == "POST":
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.user =  request.user
+            user.save()
+            messages.success(request, 'Profile Edited')
+            return redirect('profile', pk=request.user.id)
+    
+    
+    context ={
+        'form':form, 
+        'user':user, 
+        'profile':profile
+    }
+    
+    
+    return render(request, 'dashboard/profile.html', context)
 
 
     

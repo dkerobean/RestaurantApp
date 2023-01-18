@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .forms import ContactForm, ReservationForm
 from django.contrib import messages
+from dashboard.models import Food
+from django.db.models import Q
 
 def home(request):
     context = {
@@ -38,11 +40,27 @@ def about(request):
 
 
 def menu(request):
+    
+    dishes = Food.objects.all()
+    
     context = {
+        'dishes':dishes
         
     }
     
     return render(request, 'main/menu.html', context)
+
+
+def foodDetails(request,pk):
+    
+    food = Food.objects.get(id=pk)
+    
+    context = {
+        'food':food
+        
+    }
+    
+    return render(request, 'main/foodDetails.html', context)
 
     
 
