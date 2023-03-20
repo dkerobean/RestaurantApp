@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     
     'main.apps.MainConfig',
     'user.apps.UserConfig',
     'dashboard.apps.DashboardConfig',
+    'api.apps.ApiConfig', 
 
     
 ]
@@ -90,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'VyY7fVb3BxMqFp3hHDIm',
+        'PASSWORD': 'BBthwsNJmZqKPaoWY8NR',
         'HOST': 'containers-us-west-107.railway.app',
         'PORT': '5659',
     }

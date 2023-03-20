@@ -5,8 +5,11 @@ from dashboard.models import Food
 from django.db.models import Q
 
 def home(request):
+    
+    dishes = Food.objects.all()
+    
     context = {
-        
+        'dishes':dishes
     }
     return render(request, 'main/index.html', context)
 

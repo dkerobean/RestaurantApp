@@ -9,20 +9,6 @@
                 <li class="{% if request.resolver_match.url_name == 'menu' %} sb-active sb-has-children {% endif %}">
                   <a href="{% url 'menu' %}">Menu</a>
                 </li>
-                
-                
-                <li class="sb-has-children">
-                  <a href="https://elanta.app/nazar/starbelly-demo/shop-1.html">Shop</a>
-                  <ul>
-                    <li><a href="https://elanta.app/nazar/starbelly-demo/shop-1.html">Shop style 1</a></li>
-                    <li><a href="https://elanta.app/nazar/starbelly-demo/shop-2.html">Shop style 2</a></li>
-                    <li><a href="https://elanta.app/nazar/starbelly-demo/shop-list-1.html">Shop list 1</a></li>
-                    <li><a href="https://elanta.app/nazar/starbelly-demo/shop-list-2.html">Shop list 2</a></li>
-                    <li><a href="https://elanta.app/nazar/starbelly-demo/product.html">Product page</a></li>
-                    <li><a href="https://elanta.app/nazar/starbelly-demo/cart.html">Cart</a></li>
-                    <li><a href="https://elanta.app/nazar/starbelly-demo/checkout.html">Checkout</a></li>
-                  </ul>
-                </li>
                 <li class="{% if request.resolver_match.url_name == 'contact' %}sb-active sb-has-children{% endif %}">
                   <a href="{% url 'contact' %}">Contact</a>
                 </li>

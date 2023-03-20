@@ -51,7 +51,7 @@
                                                 <td><strong>{{reservation.name}}</strong></td>
                                                 <td>{{reservation.phone}}</td>
                                                 <td>{{reservation.date_time}}</td>
-                                                <td><span class="badge light badge-warning">Pending</span></td>
+                                                <td><span class="badge light badge-success">Booked</span></td>
                                                 <td>{{reservation.no_of_people}}</td>
                                                 
                                                 <td>
@@ -60,7 +60,7 @@
 															<svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="5" cy="12" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="19" cy="12" r="2"/></g></svg>
 														</button>
 														<div class="dropdown-menu">
-															<a class="dropdown-item" href="#">Completed</a>
+															
 															<a class="dropdown-item" href="{% url 'deleteReservation' reservation.id %}">Delete</a>
 														</div>
 													</div>
